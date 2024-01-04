@@ -5,7 +5,7 @@ This repository contains various [Lua](https://luadoc.edgetx.org) knick knacks f
 
 ## tmrvar
 
-This is a run-once function script which configures a timer based on the value of a gvar.
+This is a run-once function script which configures timer one based on the value of a gvar.
 
 Intended for use in glider contests, it allows quickly switching the timer between preset values using a switch.
 

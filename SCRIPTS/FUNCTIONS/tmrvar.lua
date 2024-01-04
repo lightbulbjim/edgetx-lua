@@ -1,7 +1,4 @@
--- Configures a timer based on the value of a gvar
-
--- Timer to manipulate. Zero indexed.
-local timerIndex = 0
+-- Configures timer one based on the value of a gvar
 
 -- GVar used for setting timer values. Zero indexed.
 local timerVar = 8
@@ -18,7 +15,7 @@ local function run(event, touchState)
     local minutes = model.getGlobalVariable(timerVar, 0)
 
     if minutes == 0 then  -- Sport mode
-        model.setTimer(timerIndex,
+        model.setTimer(0,
                 {
                     start = 0,
                     countdownBeep = 0,
@@ -27,7 +24,7 @@ local function run(event, touchState)
         )
         playFile(sportFile)
     elseif minutes > 0 then  -- Task mode
-        model.setTimer(timerIndex,
+        model.setTimer(0,
                 {
                     start = minutes * 60,
                     countdownBeep = 2,  -- Voice
