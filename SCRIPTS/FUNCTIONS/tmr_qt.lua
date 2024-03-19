@@ -1,4 +1,5 @@
--- Configure timer one in quiet mode
+-- Configures timer one in quiet mode.
+-- Place in /SCRIPTS/FUNCTIONS and call from a special function.
 
 local function run(_, _)
     model.setTimer(0,
