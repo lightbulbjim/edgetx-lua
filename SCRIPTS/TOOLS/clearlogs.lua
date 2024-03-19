@@ -1,4 +1,6 @@
 -- TNS|Clear logs|TNE
+-- Deletes all *.csv files from the /LOGS directory.
+-- Place in /SCRIPTS/TOOLS and call from the tools menu.
 
 -- Poor man's enum.
 PENDING = 0
@@ -8,7 +10,9 @@ COMPLETE = 3
 ERROR = 4
 
 local state = PENDING
-local number_of_logs = nil
+
+-- We only want to count this once, hence it is cached as a global.
+local number_of_logs
 
 -- There's no `table` library on monochrome radios, so we have to be inelegant.
 local function count_logs()
@@ -54,6 +58,12 @@ local function run(event, _)
         end
     end
 
+    -- Because the popups rely on events for confirmation or cancellation, we
+    -- can't just block on them and wait for input. Instead we let the main
+    -- loop run and use a state machine to manage flow.
+    --
+    -- Note: I may be completely wrong about this and there may be a far
+    -- simpler solution. But this works.
     if state == PENDING then
         popupConfirmation("Delete " .. number_of_logs .. " logs?", "", event)
         if event == EVT_VIRTUAL_ENTER then
