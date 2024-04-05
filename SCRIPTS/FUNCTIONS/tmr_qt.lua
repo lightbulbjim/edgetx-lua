@@ -1,7 +1,7 @@
 -- Configures timer one in quiet mode.
 -- Place in /SCRIPTS/FUNCTIONS and call from a special function.
 
-local function run(_, _)
+local function run()
     model.setTimer(0,
             {
                 countdownBeep = 0, -- Silent
