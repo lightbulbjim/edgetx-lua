@@ -24,3 +24,12 @@ These are called from the Sys -> Tools menu.
 ### clearlogs
 
 This script will delete all the CSV files from the /LOGS directory. Handy if, like me, you log every flight in case of disaster but never bother looking at most successful flight logs.
+
+
+## Widgets
+
+### Signal
+
+This is a simple signal health display for ExpressLRS. It shows the RSSI of each receiver antenna as well as RQly. The RSSI of the currently active antenna is highlighted.
+
+![Signal screenshot](SCREENSHOTS/Signal.png)
