@@ -13,10 +13,10 @@ local function create(zone, options)
         zone = zone,
         options = options,
         telemetry = {
-            ant = { id = getFieldInfo("ANT").id, value = nil },
-            rss1 = { id = getFieldInfo("1RSS").id, value = 0 },
-            rss2 = { id = getFieldInfo("2RSS").id, value = 0 },
-            rqly = { id = getFieldInfo("RQly").id, value = 0 }
+            ant = { source = getFieldInfo("ANT"), value = nil },
+            rss1 = { source = getFieldInfo("1RSS"), value = 0 },
+            rss2 = { source = getFieldInfo("2RSS"), value = 0 },
+            rqly = { source = getFieldInfo("RQly"), value = 0 }
         },
         teleSwitchIndex = getSwitchIndex("Tele")
     }
@@ -63,7 +63,9 @@ end
 
 local function refreshTelemetry(widget)
     for _, sensor in pairs(widget.telemetry) do
-        sensor.value = getValue(sensor.id)
+        if sensor.source ~= nil then
+            sensor.value = getValue(sensor.source.id)
+        end
     end
 end
 
@@ -94,8 +96,8 @@ local function refresh(widget, event, _)
         lcd.drawRectangle(widget.border - widget.boxPad, widget.vOffset - widget.boxPad,
                 widget.boxWidth, widget.boxHeight, colour, 1)
     elseif widget.telemetry.ant.value == 1 then
-        lcd.drawRectangle(widget.border + widget.rss2Offset + widget.boxPad - widget.boxWidth, widget.vOffset - widget.boxPad,
-                widget.boxWidth, widget.boxHeight, colour, 1)
+        lcd.drawRectangle(widget.border + widget.rss2Offset + widget.boxPad - widget.boxWidth,
+                widget.vOffset - widget.boxPad, widget.boxWidth, widget.boxHeight, colour, 1)
     end
 end
 
