@@ -19,6 +19,13 @@ Now the trimmer will adjust the Y values of the Cmp curve. The point chosen will
 This tool script will delete all the CSV files from the /LOGS directory. Handy if, like me, you log every flight in case of disaster but never bother looking at most successful flight logs.
 
 
+## Log Position
+
+This function script will log the current GPS coordinates to `/LOGS/logpos.txt`. This is intended for marking positions during search-and-rescue operations.
+
+Entries are appended to the file in DD format along with a timestamp. Nothing will be recorded if there is no active `GPS` telemetry sensor.
+
+
 ## Signal
 
 This is a simple signal health widget for ExpressLRS. It shows the RSSI of each receiver antenna as well as RQly. The RSSI of the currently active antenna is highlighted.
