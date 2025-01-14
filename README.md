@@ -14,16 +14,16 @@ A simple brake (flaps/spoiler/crow) compensation system inspired by Mike Shellim
 Now the trimmer will adjust the Y values of the Cmp curve. The point chosen will be the one whose X value is closest to the current Spo value.
 
 
+## Breadcrumbs
+
+This function script will log the current GPS coordinates to `/LOGS/crumbs.txt`. This is intended for marking positions during search-and-rescue operations.
+
+Entries are appended to the file in DD format along with a timestamp. Nothing will be recorded if there is no active `GPS` telemetry sensor.
+
+
 ## Clear Logs
 
 This tool script will delete all the CSV files from the /LOGS directory. Handy if, like me, you log every flight in case of disaster but never bother looking at most successful flight logs.
-
-
-## Log Position
-
-This function script will log the current GPS coordinates to `/LOGS/logpos.txt`. This is intended for marking positions during search-and-rescue operations.
-
-Entries are appended to the file in DD format along with a timestamp. Nothing will be recorded if there is no active `GPS` telemetry sensor.
 
 
 ## Signal

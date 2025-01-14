@@ -1,6 +1,6 @@
 -- Log the current GPS coordinates to a file
 
-local logfile = "/LOGS/logpos.txt"
+local logfile = "/LOGS/crumbs.txt"
 
 local function run()
     local position = getValue("GPS")
